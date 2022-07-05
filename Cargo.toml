@@ -1,0 +1,15 @@
+[package]
+name = "image-tools-cli"
+version = "0.1.0"
+edition = "2021"
+
+
+[dependencies]
+image = "0.24.2"
+clap = { version = "3.0", features = ["derive"] }
+
+
+[profile.release]
+opt-level = "z"       # Optimize for size.
+lto = true            # Link Time Optimization. Trade higher compile time for smaller binary.
+strip = "debuginfo"   # Remove debug information and symbols (size optimization).
